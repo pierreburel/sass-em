@@ -2,6 +2,8 @@
 
 Sass function and mixin to convert px in em.
 
+Demo: [Sassmeister](http://sassmeister.com/gist/4481fa0aeeaf49ea9325) / [Codepen](http://codepen.io/pierreburel/pen/dPwXrr)
+
 Compatibility: Sass 3.2+ (3.3+ for the mixin) and LibSass
 
 ---
@@ -39,7 +41,7 @@ h1 {
   box-shadow: em(0 0 2px #ccc, inset 0 0 5px #eee, $h1-font-size); // Multiple values
   // Mixin (Sass 3.3+)
   @include em((
-    margin: 20px 10px,
+    margin: 20px 5%,
     padding: 10px
   ), $h1-font-size);
 }
@@ -52,7 +54,7 @@ h1 {
   font-size: 1.5em;
   border-bottom: 0.04167em solid black;
   box-shadow: 0 0 0.08333em #ccc, inset 0 0 0.20833em #eee;
-  margin: 0.83333em 0.41667em;
+  margin: 0.83333em 5%;
   padding: 0.41667em;
 }
 ```
