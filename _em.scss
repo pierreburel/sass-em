@@ -1,0 +1,38 @@
+// list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
+@function em-separator($list) {
+  @if function-exists("list-separator") == true {
+    @return list-separator($list);
+  }
+
+  $test-list: ();
+  @each $item in $list {
+    $test-list: append($test-list, $item, space);
+  }
+
+  @return if($test-list == $list, space, comma);
+}
+
+@function em($values...) {  
+  $context: nth($values, length($values));
+  $result: ();
+  $separator: em-separator($values);
+
+  @for $i from 1 through length($values) - 1 {
+    $value: nth($values, $i);
+    @if type-of($value) == "number" and unit($value) == "px" {
+      $result: append($result, $value / $context * 1em, $separator);
+    } @else if type-of($value) == "list" {
+      $result: append($result, em(append($value, $context)...), $separator);
+    } @else {
+      $result: append($result, $value, $separator);
+    }
+  }
+
+  @return $result;
+}
+
+@mixin em($properties, $context) {
+  @each $property, $value in $properties {
+    #{$property}: em(append($value, $context)...);
+  }
+}

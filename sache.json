@@ -1,0 +1,10 @@
+{
+  "name": "sass-em",
+  "description": "Sass function and mixin to convert px in em.",
+  "tags": [
+    "sass",
+    "em",
+    "responsive"
+  ],
+  "website": "https://github.com/pierreburel/sass-em"
+}
