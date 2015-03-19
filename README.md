@@ -30,15 +30,18 @@ The mixin takes only 2 parameters: the properties (map of `property: value`) and
 ```scss
 @import "em";
 
+$base-font-size: 16px;
+$h1-font-size: 24px;
+
 h1 {
-  font-size: em(24px, 16px); // Simple
-  border-bottom: em(1px solid black, 24px); // Shorthand
-  box-shadow: em(0 0 2px #ccc, inset 0 0 5px #eee, 24px); // Multiple values
+  font-size: em($h1-font-size, $base-font-size); // Simple
+  border-bottom: em(1px solid black, $h1-font-size); // Shorthand
+  box-shadow: em(0 0 2px #ccc, inset 0 0 5px #eee, $h1-font-size); // Multiple values
   // Mixin (Sass 3.3+)
   @include em((
     margin: 20px 10px,
     padding: 10px
-  ), 24px);
+  ), $h1-font-size);
 }
 ```
 
