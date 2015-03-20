@@ -6,6 +6,8 @@ Demo: [Sassmeister](http://sassmeister.com/gist/4481fa0aeeaf49ea9325) / [Codepen
 
 Compatibility: Sass 3.2+ (3.3+ for the mixin) and LibSass
 
+See also: https://github.com/pierreburel/sass-rem
+
 ---
 
 ## Install
@@ -27,7 +29,7 @@ There can be multiple values (eg. multiple box shadow), but **the last parameter
 
 The mixin takes only 2 parameters: the properties (map of `property: value`) and the context (px). It can be used to convert the values of multiple properties with the same context.
 
-## Example :
+## Example
 
 ```scss
 @import "em";
