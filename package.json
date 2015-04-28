@@ -1,6 +1,6 @@
 {
   "name": "sass-em",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sass function and mixin to convert px in em.",
   "keywords": [
     "sass",

@@ -32,7 +32,7 @@
 }
 
 @mixin em($properties, $context) {
-  @each $property, $value in $properties {
-    #{$property}: em(append($value, $context)...);
+  @each $property in map-keys($properties) {
+    #{$property}: em(append(map-get($properties, $property), $context)...);
   }
 }

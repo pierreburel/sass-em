@@ -12,10 +12,16 @@ See also: https://github.com/pierreburel/sass-rem
 
 ## Install
 
-Download [`_em.scss`](https://raw.githubusercontent.com/pierreburel/sass-em/master/_em.scss) or install with [Bower](http://bower.io/):
+Download [`_em.scss`](https://raw.githubusercontent.com/pierreburel/sass-em/master/_em.scss) or install with [Bower](http://bower.io/) or [npm](https://www.npmjs.com/):
 
 ```
 bower install sass-em
+```
+
+### npm
+
+```
+npm install sass-em
 ```
 
 ---
