@@ -12,7 +12,7 @@
   @return if($test-list == $list, space, comma);
 }
 
-@function em($values...) {  
+@function em($values...) {
   $context: nth($values, length($values));
   $result: ();
   $separator: em-separator($values);
@@ -28,7 +28,7 @@
     }
   }
 
-  @return $result;
+  @return if(length($result) == 1, nth($result, 1), $result);
 }
 
 @mixin em($properties, $context) {
