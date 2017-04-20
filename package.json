@@ -7,6 +7,17 @@
     "em",
     "responsive"
   ],
+  "ignore": [
+    "**/.*",
+    "sache.json",
+    "bower.json"
+  ],
+  "files": [
+    "_em.scss",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "main": "_em.scss",
   "homepage": "https://github.com/pierreburel/sass-em",
   "bugs": {
     "url": "https://github.com/pierreburel/sass-em/issues"
