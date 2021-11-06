@@ -1,38 +1,46 @@
-// list-separator polyfill by Hugo Giraudel (https://sass-compatibility.github.io/#list_separator_function)
-@function em-separator($list) {
-  @if function-exists("list-separator") == true {
-    @return list-separator($list);
+@use "sass:list";
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+
+// Dart Sass <1.33.0 compatibility
+@function _divide($a, $b) {
+  @if map.has-key(meta.module-functions("math"), "div") {
+    @return math.div($a, $b);
   }
 
-  $test-list: ();
-  @each $item in $list {
-    $test-list: append($test-list, $item, space);
-  }
-
-  @return if($test-list == $list, space, comma);
+  @return $a / $b;
 }
 
-@function em($values...) {
-  $context: nth($values, length($values));
+@function convert($values...) {
+  $context: list.nth($values, list.length($values));
   $result: ();
-  $separator: em-separator($values);
+  $separator: list.separator($values);
 
-  @for $i from 1 through length($values) - 1 {
-    $value: nth($values, $i);
-    @if type-of($value) == "number" and unit($value) == "px" {
-      $result: append($result, $value / $context * 1em, $separator);
-    } @else if type-of($value) == "list" {
-      $result: append($result, em(append($value, $context)...), $separator);
+  @for $i from 1 through list.length($values) - 1 {
+    $value: list.nth($values, $i);
+    @if meta.type-of($value) == "number" and math.unit($value) == "px" {
+      $result: list.append($result, _divide($value, $context) * 1em, $separator);
+    } @else if meta.type-of($value) == "list" {
+      $result: list.append($result, em(list.append($value, $context)...), $separator);
     } @else {
-      $result: append($result, $value, $separator);
+      $result: list.append($result, $value, $separator);
     }
   }
 
-  @return if(length($result) == 1, nth($result, 1), $result);
+  @return if(list.length($result) == 1, list.nth($result, 1), $result);
+}
+
+@mixin convert($properties, $context) {
+  @each $property in map.keys($properties) {
+    #{$property}: em(list.append(map.get($properties, $property), $context)...);
+  }
+}
+
+@function em($values...) {
+  @return convert($values...);
 }
 
 @mixin em($properties, $context) {
-  @each $property in map-keys($properties) {
-    #{$property}: em(append(map-get($properties, $property), $context)...);
-  }
+  @include convert($properties, $context);
 }
