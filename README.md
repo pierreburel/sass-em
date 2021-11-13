@@ -1,4 +1,4 @@
-# Em
+# sass-em [![Node.js CI](https://github.com/pierreburel/sass-em/actions/workflows/node.js.yml/badge.svg)](https://github.com/pierreburel/sass-em/actions/workflows/node.js.yml)
 
 Sass function and mixin to convert px in em.
 
