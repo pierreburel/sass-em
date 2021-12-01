@@ -2,9 +2,9 @@
 
 Sass function and mixin to convert px in em.
 
-**Breaking change in 2.0**: now using [Sass Modules](https://sass-lang.com/blog/the-module-system-is-launched), using `@use` and `em` is renamed to `em.convert`. You could still use `@import` with no changes (see usage below), but **if you need LibSass and Ruby Sass support (both deprecated), you should stay on 1.0** (which works fine) or use the [PostCSS](https://github.com/pierreburel/postcss-em) version.
+**Breaking change in 2.0**: now using [Sass Modules](https://sass-lang.com/blog/the-module-system-is-launched), using `@use` and `em` is renamed to `em.convert`. You could still use `@import` with no changes (see usage below), but **if you need LibSass/node-sass and Ruby Sass support (both deprecated), you should stay on 1.0** (which works fine) or use the [PostCSS](https://github.com/pierreburel/postcss-em) version.
 
-Compatibility: [Dart Sass](https://sass-lang.com/dart-sass) only.
+Compatibility: [Dart Sass](https://sass-lang.com/dart-sass) only (**use v1.x for LibSass/node-sass and Ruby Sass**).
 
 PostCSS version: https://github.com/pierreburel/postcss-em
 
