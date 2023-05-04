@@ -92,6 +92,6 @@ And if you just don't want to use Sass Modules, you can still use `@import` with
 @import "sass-em";
 
 .demo {
-  font-size: rem(24px);
+  font-size: em(24px, 16px);
 }
 ```
