@@ -4,7 +4,7 @@ Sass function and mixin to convert px in em.
 
 ## Breaking changes
 
-- **3.0**: changed default function name when imported globally (`@use "rem" as *;` or `@import "sass-rem";`) to `em-convert` to match [sass-rem](https://github.com/pierreburel/sass-rem), as [CSS now use `rem()` for calculating the remainder](https://developer.mozilla.org/en-US/docs/Web/CSS/rem). It shouldn't change anything if you used Sass Modules introduced in 3.0 (`em.convert`).
+- **3.0**: changed default function name when imported globally (`@use "rem" as *;` or `@import "sass-rem";`) to `em-convert` to match [sass-rem](https://github.com/pierreburel/sass-rem), as [CSS now use `rem()` for calculating the remainder](https://developer.mozilla.org/en-US/docs/Web/CSS/rem). It shouldn't change anything if you used Sass Modules introduced in 2.0 (`em.convert`).
 
 - **2.0**: now using [Sass Modules](https://sass-lang.com/blog/the-module-system-is-launched), using `@use` and `em` is renamed to `em.convert`. You could still use `@import` with no changes (see usage below), but **if you need LibSass/node-sass and Ruby Sass support (both deprecated), you should stay on 1.0** (which works fine) or use the [PostCSS](https://github.com/pierreburel/postcss-em) version.
 
