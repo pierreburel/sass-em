@@ -2,13 +2,11 @@
 
 Sass function and mixin to convert px in em.
 
-**Breaking change in 2.0**: now using [Sass Modules](https://sass-lang.com/blog/the-module-system-is-launched), using `@use` and `em` is renamed to `em.convert`. You could still use `@import` with no changes (see usage below), but **if you need LibSass/node-sass and Ruby Sass support (both deprecated), you should stay on 1.0** (which works fine) or use the [PostCSS](https://github.com/pierreburel/postcss-em) version.
+## Breaking changes
 
-Compatibility: [Dart Sass](https://sass-lang.com/dart-sass) only (**use v1.x for LibSass/node-sass and Ruby Sass**).
+- **3.0**: changed default function name when imported globally (`@use "rem" as *;` or `@import "sass-rem";`) to `em-convert` to match [sass-rem](https://github.com/pierreburel/sass-rem), as [CSS now use `rem()` for calculating the remainder](https://developer.mozilla.org/en-US/docs/Web/CSS/rem). It shouldn't change anything if you used Sass Modules introduced in 3.0 (`em.convert`).
 
-PostCSS version: https://github.com/pierreburel/postcss-em
-
-See also: https://github.com/pierreburel/sass-rem
+- **2.0**: now using [Sass Modules](https://sass-lang.com/blog/the-module-system-is-launched), using `@use` and `em` is renamed to `em.convert`. You could still use `@import` with no changes (see usage below), but **if you need LibSass/node-sass and Ruby Sass support (both deprecated), you should stay on 1.0** (which works fine) or use the [PostCSS](https://github.com/pierreburel/postcss-em) version.
 
 ---
 
@@ -62,11 +60,9 @@ Will output :
 }
 ```
 
-## *But it was shorter before!*
+## Namespace
 
-It was.
-
-But You can change the namespace to something shorter and use `em` function and mixin instead of `convert`:
+You can change the namespace when importing and use `em` function and mixin instead of `convert`:
 
 ```scss
 @use "em" as to; // Because why not?
@@ -82,16 +78,27 @@ Or you can even load the library globally (but beware of conflicts, avoided by t
 @use "em" as *;
 
 .demo {
-  font-size: em(24px, 16px);
+  font-size: em-convert(24px, 16px);
 }
 ```
 
-And if you just don't want to use Sass Modules, you can still use `@import` with `em` function and mixin as before:
+---
+
+## Legacy import
+
+If you don't want to use Sass Modules, you can still use `@import` with `em-convert` function and mixin:
 
 ```scss
 @import "sass-em";
 
 .demo {
-  font-size: em(24px, 16px);
+  font-size: em-convert(24px);
 }
 ```
+
+---
+
+## See also
+
+- PostCSS version: https://github.com/pierreburel/postcss-em
+- `sass-rem`: https://github.com/pierreburel/sass-rem

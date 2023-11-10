@@ -52,13 +52,13 @@ it('Changing namespace', () => run(
 ));
 
 it('Global namespace', () => run(
-  '.global-namespace { font-size: em(24px, 16px); }',
+  '.global-namespace { font-size: em-convert(24px, 16px); }',
   '.global-namespace { font-size: 1.5em; }',
   '@use "." as *;',
 ));
 
 it('Legacy import', () => run(
-  '.legacy-import { @include em((font-size: 24px), 16px); margin: em(10px 1.5em, 16px); }',
+  '.legacy-import { @include em-convert((font-size: 24px), 16px); margin: em-convert(10px 1.5em, 16px); }',
   '.legacy-import { font-size: 1.5em; margin: 0.625em 1.5em; }',
   '@import ".";',
 ));

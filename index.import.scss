@@ -1,11 +1,3 @@
 @use "em";
 
-@forward "em" as em-* hide em-em;
-
-@function em($values...) {
-  @return em.convert($values...);
-}
-
-@mixin em($properties, $context) {
-  @include em.convert($properties, $context);
-}
+@forward "em" as em-* hide em-em, em-em-convert;

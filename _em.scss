@@ -37,10 +37,20 @@
   }
 }
 
+// Proxy when used with a different namespace
 @function em($values...) {
   @return convert($values...);
 }
 
 @mixin em($properties, $context) {
+  @include convert($properties, $context);
+}
+
+// Proxy when imported globally
+@function em-convert($values...) {
+  @return convert($values...);
+}
+
+@mixin em-convert($properties, $context) {
   @include convert($properties, $context);
 }
