@@ -1,6 +1,6 @@
 {
   "name": "sass-em",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Sass function and mixin to convert px in em.",
   "keywords": [
     "sass",
@@ -19,8 +19,8 @@
     "url": "git://github.com/pierreburel/sass-em.git"
   },
   "devDependencies": {
-    "jest": "^29.7.0",
-    "sass": "^1.69.5"
+    "jest": "^30.2.0",
+    "sass": "^1.96.0"
   },
   "scripts": {
     "test": "jest"
